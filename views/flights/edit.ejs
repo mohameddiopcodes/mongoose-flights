@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+    <p class="error"><%= err? err:'' %></p>
+
+    <h1>Edit Flight</h1>
+    <form class='edit-form' action="/flights/<%= flight._id %>?_method=PUT" method='post'>
+        <select name="airline" id="">
+            <option <%=  flight.airline === 'American'? 'selected':'' %> value="American">American Airlines</option>
+            <option <%=  flight.airline === 'Southwest'? 'selected':'' %>  value="Southwest">Southwest Airlines</option>
+            <option <%=  flight.airline === 'United'? 'selected':'' %>  value="United">United Airlines</option>
+        </select>
+        <select name="airport" id="">
+            <option <%=  flight.airport === 'AUS'? 'selected':'' %> value="AUS">AUS</option>
+            <option <%=  flight.airport === 'DFW'? 'selected':'' %> value="DFW">DFW</option>
+            <option <%=  flight.airport === 'DEN'? 'selected':'' %> value="DEN">DEN</option>
+            <option <%=  flight.airport === 'LAX'? 'selected':'' %> value="LAX">LAX</option>
+            <option <%=  flight.airport === 'SAN'? 'selected':'' %> value="SAN">SAN</option>
+        </select>
+        <input name="flightNo" type="text" value="<%= flight.flightNo %>">
+        <input name="departs" type="datetime-local" value="<%= moment(flight.departs).format('YYYY-MM-DDThh:mm') %>"> 
+        <input type="submit" value="UPDATE">
+    </form>
+    <form class='delete' action="/flights/<%= flight._id %>?_method=DELETE" method="post">
+        <input type="submit" value="Delete this flight">
+    </form>
+
+<%- include('../partials/footer') %>

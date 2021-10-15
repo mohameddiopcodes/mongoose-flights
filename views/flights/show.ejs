@@ -1,0 +1,66 @@
+<%- include('../partials/header') %>
+
+<h1>Show Flight</h1>
+    <div class="flight-info">
+        <div class='head'>
+            <p class='airline'>Airplane</p>
+            <p class='airline'>Airport</p>
+            <p class='airline'>Flight Number</p>
+            <p class='airline'>Departure</p>
+        </div>
+        <div>
+            <p class='airline'><%= flight.airline %> Airlines</p>
+            <p class='airline'><%= flight.airport %></p>
+            <p class='airline'><%= flight.flightNo %></p>
+            <p class='airline'><%= moment(flight.departs).format('MMMM DD YYYY, h:mm a') %></p>
+        </div>
+        <!-- <div class="overlay"></div> -->
+        <div class='btns'>
+            <a class='btn' href="/flights/edit/<%= flight._id %>">EDIT INFO</a>
+        
+            <a class='btn' href="/flights/<%= flight.id %>/tickets/new">ADD TICKETS</a>
+        </div>
+    </div>
+
+    <h2>ADD DESTINATION</h2>
+    <form action="/flights/<%= flight._id %>/destinations" method="post">
+        <select name="airport" id="">
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select>
+        <input type="datetime-local" name="arrival" value="<%= moment().format('YYYY-MM-DDThh:mm') %>">
+        <input type="submit" value="ADD DESTINATION">
+    </form>
+
+
+    <h2>DESTINATIONS</h2>
+    <p class="info-text"><%=  flight.destinations.length === 0 ? 'No destination yet...':'' %></p>
+    <div class='all-destinations'>
+        <% flight.destinations.forEach( dest => { %>
+            <div class='destination-card'>
+                <div>
+                    <p class='info-text'><span>Airport </span><%= dest.airport %></p>
+                    <p class='info-text'><span>Arrival </span><%= moment(dest.arrival).format('MMMM Do YYYY, h:mm:ss a') %></p>
+                </div>
+                <a class='btn' style='margin: 0' href="/destinations/<%= dest._id %>/edit">EDIT INFO</a>
+            </div>
+        <% }) %>
+    </div>
+
+
+    <h2>TICKETS</h2>
+    <p class="info-text"><%=  flight.tickets.length === 0 ? 'No ticket yet...':'' %></p>
+    <div class='all-tickets'>
+        <% flight.tickets.forEach( ticket => { %>
+            <div class='destination-card ticket'>
+                <p class='info-text'><span>Seat </span><%= ticket.seat %></p>
+                <p class='info-text'><span>Price </span><%= ticket.price %></p>
+                <a class='btn' style='margin: 0;' href="/tickets/<%= ticket._id %>/edit">EDIT INFO</a>
+            </div>
+        <% }) %>
+    </div>
+
+<%- include('../partials/footer') %>

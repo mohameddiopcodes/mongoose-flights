@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+    <h1>All Flights</h1>
+    <div class='all-flights'>
+        <% flights.forEach(flight => { %>
+                <a href="/flights/<%= flight._id %>" class='flight-card'>
+                    <div>
+                        <p>Flight <%= flight.flightNo %> <br> <%= flight.airline %> Airlines</p>
+                        <div class="overlay"></div>
+                    </div>
+                </a>
+        <% }) %>
+    </div>
+
+<%- include('../partials/footer') %>

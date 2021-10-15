@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<h1>EDIT TICKET</h1>
+
+<form action="/tickets/<%= ticket.id %>?_method=PUT" method="post">
+    <input name="seat" required pattern="[A-F][1-9]\d?" value="<%= ticket.seat %>">
+    <input type="number" name="price" value="<%= ticket.price %>">
+    <input type="submit" value="DONE">
+</form>
+<form class='delete' action="/tickets/<%= ticket._id %>?_method=DELETE" method="post">
+    <input type="submit" value="Delete this ticket">
+</form>
+
+<%- include('../partials/footer') %>

@@ -1,8 +1,250 @@
+* {
+  box-sizing: border-box
+}
+
 body {
+  width: 50vw;
+  margin: 0 auto;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+div {
+  display: inline-block
+}
+
+nav a {
+  color: #636363;
+  text-decoration: none;
+  margin: 0 2vmin 0 0
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.home-img {
+  margin: 5vh 0
+}
+
+.home-img-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}
+
+.home-img-text {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+.call-to-action {
+  background: #000;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 1.5em;
+  font-size: 0.9em;
+  color: white;
+  text-decoration: none;
+  margin: 2em 0
+}
+
+.call-to-action:hover {
+  background: #fff;
+  color: #000
+}
+
+.flight-card {
+  text-decoration: none;
+  color: white;
+  width: fit-content;
+  height: fit-content;
+  display: inline-block;
+  margin: 0 5em 2em 0;
+}
+
+.flight-card p {
+  text-align: center;
+  z-index: 11;
+  position: absolute;
+  width: 10em;
+  bottom: 30%;
+  right: 0;
+  pointer-events: none;
+}
+
+.flight-card div:not(.overlay) {
+  position: relative;
+  background: url('/images/flight.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 10em;
+  height: 10em;
+  border-radius: 5px;
+  z-index: 9
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.overlay:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.flight-info {
+  background: linear-gradient(90deg, rgba(255,244,252,1) 0%, rgba(200,224,255,1) 89%);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 5px 5px 28px rgba(0,0,0,0.5);
+  padding: 5em;
+  width: 100%;
+  height: 20vh;
+  margin: 5em auto;
+  color: #636363;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+
+.flight-info div {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0
+}
+
+.flight-info p {
+  z-index: 100;
+  text-align: left;
+  position: block;
+  font-size: 1em;
+  text-align: left;
+  width: 20%;
+  margin: 1em
+}
+
+.flight-info .head{
+  color: #000
+}
+
+.btn {
+  padding: 1em;
+  font-size: .8em;
+  background: black;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  margin: 1.5em 1em;
+  border: 2px solid black;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #000
+}
+
+.all-destinations {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.destination-card {
+  background: linear-gradient(90deg, rgba(255,244,252,1) 0%, rgba(200,224,255,1) 89%);;
+  box-shadow: 5px 5px 28px rgba(0,0,0,0.5);
+  margin: 2em 2em 4em 0;
+  padding: 3em;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.info-text {
+  color: #636363;
+  font-size: .9em
+}
+
+.info-text span {
+  color: #000;
+}
+
+.all-tickets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ticket {
+  min-width: 30%;
+  margin: 2em 2em 2em 0
+}
+
+form {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 40%;
+  /* margin: 5em 0; */
+}
+
+input, select {
+  padding: 1em;
+  margin: .8em 0;
+}
+
+input:not(input[type='submit']), select {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid black;
+}
+
+input:not(input[type='submit']):focus, select:focus {
+  outline: none;
+  border-bottom: 4px solid black;
+}
+
+input[type='submit'] {
+  border: 2px solid black;
+  border-radius: 5px;
+  background: #000;
+  color: #FFF;
+  margin: 1em 0
+}
+
+input[type='submit']:hover {
+  background: #FFF;
+  color: #000;
+}
+
+.delete input {
+  padding: 0;
+  border: 0;
+  background: #FFF;
+  color: #636363;
+  display: flex;
+  align-items: flex-start;
+}
+.delete input:hover {
+  padding: 0;
+  border: 0;
+  background: #FFF;
+  color: #636363;
+  text-decoration: underline
 }

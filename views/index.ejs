@@ -1,6 +1,12 @@
 <%- include('./partials/header') %>
 
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+<div class="home-img-box">
+    <img class='home-img' src="/images/flight.webp" alt="flight image">
+    <div class="home-img-text">
+        <h1>Add Flights and manage them</h1>
+        <p>Add a flight, its destination and tickets so you can manage them with ease. This app was built using express and mongoose.</p>
+        <a class="call-to-action" href="/flights/new">ADD A FLIGHT</a>
+    </div>
+</div>
 
 <%- include('./partials/footer') %>

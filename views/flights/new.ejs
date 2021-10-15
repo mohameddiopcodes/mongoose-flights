@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+    <p class="error"><%= err? err:'' %></p>
+
+    <h1>New Flight</h1>
+    <form class='new-form' action="/flights" method='post'>
+        <select name="airline" id="">
+            <option value="American">American Airlines</option>
+            <option value="Southwest">Southwest Airlines</option>
+            <option value="United">United Airlines</option>
+        </select>
+        <select name="airport" id="">
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select>
+        <input name="flightNo" placeholder="Flight Number" type="text">
+        <input name="departs" type="datetime-local" value="<%= moment().format('YYYY-MM-DDThh:mm') %>"> 
+        <input type="submit" value="CREATE">
+    </form>
+
+<%- include('../partials/footer') %>

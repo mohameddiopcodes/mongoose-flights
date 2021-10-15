@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<h1>EDIT DESTINATION</h1>
+
+<form action="/destinations/<%= destination.id %>?_method=PUT" method="post">
+    <select name="airport" id="">
+        <option <%=  destination.airport === 'AUS'? 'selected':'' %> value="AUS">AUS</option>
+        <option <%=  destination.airport === 'DFW'? 'selected':'' %> value="DFW">DFW</option>
+        <option <%=  destination.airport === 'DEN'? 'selected':'' %> value="DEN">DEN</option>
+        <option <%=  destination.airport === 'LAX'? 'selected':'' %> value="LAX">LAX</option>
+        <option <%=  destination.airport === 'SAN'? 'selected':'' %> value="SAN">SAN</option>
+    </select>
+    <input type="datetime-local" name="arrival" value="<%= moment(destination.arrival).format('YYYY-MM-DDThh:mm') %>">
+    <input type="submit" value="DONE">
+</form>
+<form class='delete' action="/destinations/<%= destination._id %>?_method=DELETE" method="post">
+    <input type="submit" value="Delete this destination">
+</form>
+
+<%- include('../partials/footer') %>
